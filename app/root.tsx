@@ -1,3 +1,4 @@
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import {
 	Links,
 	Meta,
@@ -5,7 +6,6 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from '@remix-run/react';
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import './tailwind.css';
 
 export function Layout({ children }: { children: React.ReactNode }) {
