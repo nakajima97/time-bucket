@@ -1,5 +1,4 @@
-import { QuestionBase } from '@/components/QuestionBase';
-import { Button, Flex, Input, Paper, Text } from '@mantine/core';
+import AgeVerification from '@/features/ageVerification/components';
 import type { MetaFunction } from '@remix-run/node';
 
 export const meta: MetaFunction = () => {
@@ -11,10 +10,6 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
 	return (
-		<QuestionBase>
-			<Text>あなたは現在何歳ですか？</Text>
-			<Input type="number" placeholder="年齢を入力してください" />
-			<Button>次へ</Button>
-		</QuestionBase>
+		<AgeVerification />
 	);
 }
