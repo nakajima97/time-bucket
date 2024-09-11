@@ -1,3 +1,4 @@
+import { Button } from '@mantine/core';
 import type { MetaFunction } from '@remix-run/node';
 
 export const meta: MetaFunction = () => {
@@ -33,6 +34,9 @@ export default function Index() {
 					</a>
 				</li>
 			</ul>
+			<Button component="a" href="https://mantine.dev/" target="_blank">
+				Mantine website
+			</Button>
 		</div>
 	);
 }

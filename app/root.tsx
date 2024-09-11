@@ -1,3 +1,5 @@
+import '@mantine/core/styles.css';
+
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import {
 	Links,
