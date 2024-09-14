@@ -1,7 +1,7 @@
-import { BucketList } from "../BucketList/Index"
+import { BucketList } from '../BucketList/Index';
 
 export const BucketListContainer = () => {
-  const ages = [
+	const ages = [
 		{
 			start: 10,
 			end: 20,
@@ -28,5 +28,5 @@ export const BucketListContainer = () => {
 		},
 	];
 
-  return <BucketList ages={ages}/>
-}
+	return <BucketList ages={ages} />;
+};

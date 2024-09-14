@@ -1,6 +1,6 @@
 import { Flex } from '@mantine/core';
+import type { FC } from 'react';
 import { TaskListItem } from '../TaskListItem';
-import { FC } from 'react';
 
 type Props = {
 	tasks: {

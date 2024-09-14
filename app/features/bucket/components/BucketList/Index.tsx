@@ -1,13 +1,13 @@
 import { Flex } from '@mantine/core';
+import type { FC } from 'react';
 import { Bucket } from '../Bucket';
-import { FC } from 'react';
 
 type Props = {
 	ages: {
 		start: number;
 		end: number;
 	}[];
-}
+};
 
 export const BucketList: FC<Props> = ({ ages }) => {
 	return (

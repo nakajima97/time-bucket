@@ -1,7 +1,7 @@
-import { TaskList } from "../TaskList";
+import { TaskList } from '../TaskList';
 
 export const TaskListContainer = () => {
-  const tasks = [
+	const tasks = [
 		{
 			id: 1,
 			title: 'Task 1',
@@ -12,5 +12,5 @@ export const TaskListContainer = () => {
 		},
 	];
 
-  return <TaskList tasks={tasks} />;
-}
+	return <TaskList tasks={tasks} />;
+};
