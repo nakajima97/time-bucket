@@ -1,8 +1,8 @@
-import { Bucket } from "@/features/bucket/components";
+import { Question } from "@/features/bucket/components/Question";
 
 const Index = () => {
   return (
-    <Bucket />
+    <Question />
   );
 }
 
