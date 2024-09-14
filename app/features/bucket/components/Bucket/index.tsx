@@ -12,7 +12,7 @@ export const Bucket: FC<Props> = ({ age }) => {
 			style={{
 				flexDirection: 'column',
 				border: '1px solid gray',
-				width: `${CARD_WIDTH + 20}px`,
+				minWidth: `${CARD_WIDTH + 20}px`,
 				padding: '8px',
 			}}
 		>
