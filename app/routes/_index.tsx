@@ -1,4 +1,4 @@
-import AgeVerification from '@/features/ageVerification/components';
+import { Question } from '@/features/ageVerification/components/Question';
 import type { MetaFunction } from '@remix-run/node';
 
 export const meta: MetaFunction = () => {
@@ -9,5 +9,5 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-	return <AgeVerification />;
+	return <Question />;
 }

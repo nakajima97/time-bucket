@@ -1,5 +1,5 @@
 import { QuestionBase } from '@/components/QuestionBase';
-import { Button, Flex, Input, Paper, Text } from '@mantine/core';
+import { Button, Input, Text } from '@mantine/core';
 import type { MetaFunction } from '@remix-run/node';
 import { useNavigate } from '@remix-run/react';
 
@@ -10,7 +10,7 @@ export const meta: MetaFunction = () => {
 	];
 };
 
-export default function AgeVerification() {
+export const Question = () => {
 	const navigate = useNavigate();
 
 	const handleClick = () => {
