@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react';
 import { BucketList } from './Index';
 
 export default {
-	title: 'Features/Bucket/Components/BucketList',
+	title: 'features/bucket/Components/BucketList',
 	component: BucketList,
 };
 

@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react';
 import { TaskListItem } from './index';
 
 export default {
-	title: 'Features/Bucket/Components/TaskListItem',
+	title: 'features/bucket/Components/TaskListItem',
 	component: TaskListItem,
 };
 

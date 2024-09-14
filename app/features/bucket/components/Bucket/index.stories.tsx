@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react';
 import { Bucket } from '.';
 
 export default {
-	title: 'Features/Bucket/Components/Bucket',
+	title: 'features/bucket/Components/Bucket',
 	component: Bucket,
 };
 

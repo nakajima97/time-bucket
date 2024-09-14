@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react';
 import { Question } from '.';
 
 export default {
-	title: 'Features/AgeVerification/Components/Question',
+	title: 'features/ageVerification/Components/Question',
 	component: Question,
 };
 
