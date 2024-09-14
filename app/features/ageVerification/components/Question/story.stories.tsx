@@ -7,4 +7,4 @@ export default {
 
 const Template = () => <Question />;
 
-const Default = Template.bind({});
+export const Default = Template.bind({});
