@@ -1,18 +1,15 @@
 import { Flex } from '@mantine/core';
-import { Item } from '../Item';
+import { TaskListItem } from '../TaskListItem';
+import { FC } from 'react';
 
-export const TaskList = () => {
-	const tasks = [
-		{
-			id: 1,
-			title: 'Task 1',
-		},
-		{
-			id: 2,
-			title: 'Task 2',
-		},
-	];
+type Props = {
+	tasks: {
+		id: number;
+		title: string;
+	}[];
+};
 
+export const TaskList: FC<Props> = ({ tasks }) => {
 	return (
 		<Flex
 			style={{
@@ -23,7 +20,7 @@ export const TaskList = () => {
 			}}
 		>
 			{tasks.map((task) => (
-				<Item key={task.id} text={task.title} />
+				<TaskListItem key={task.id} text={task.title} />
 			))}
 		</Flex>
 	);

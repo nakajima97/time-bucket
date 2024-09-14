@@ -1,11 +1,11 @@
-import { Badge, Button, Card, Group, Image, Text } from '@mantine/core';
+import { Card, Text } from '@mantine/core';
 import type { FC } from 'react';
 
 type Props = {
 	text: string;
 };
 
-export const Item: FC<Props> = ({ text }) => {
+export const TaskListItem: FC<Props> = ({ text }) => {
 	return (
 		<Card
 			shadow="sm"
