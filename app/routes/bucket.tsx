@@ -6,7 +6,7 @@ const Index = () => {
 		<Layout>
 			<Question />
 		</Layout>
-	)
+	);
 };
 
 export default Index;

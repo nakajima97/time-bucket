@@ -16,7 +16,7 @@ export const Bucket: FC<Props> = ({ age }) => {
 				padding: '8px',
 			}}
 		>
-			<Box style={{ flexGrow: 1, minHeight: 0 }}></Box>
+			<Box style={{ flexGrow: 1, minHeight: 0 }} />
 			<Divider />
 			<Box style={{ padding: '16px' }}>
 				<Text style={{ width: '100%', textAlign: 'center' }}>{age}代</Text>
