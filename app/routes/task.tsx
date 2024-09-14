@@ -1,7 +1,7 @@
-import { Question } from '@/features/task/components/Question';
+import { QuestionContainer } from "@/features/task/components/QuestionContainer";
 
 const Index = () => {
-	return <Question />;
+	return <QuestionContainer />;
 };
 
 export default Index;

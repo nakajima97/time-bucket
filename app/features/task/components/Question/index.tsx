@@ -1,17 +1,15 @@
 import { Button, Flex, Input, Text } from '@mantine/core';
-import { useNavigate } from '@remix-run/react';
 
 import { QuestionBase } from '@/components/QuestionBase';
 
-import { TaskList } from '../TaskList';
+import { TaskListContainer } from '../TaskListContainer';
+import { FC } from 'react';
 
-export const Question = () => {
-	const navigate = useNavigate();
+type Props = {
+	onClick: () => void
+};
 
-	const handleNextQuestion = () => {
-		navigate('/bucket');
-	};
-
+export const Question: FC<Props> = ({ onClick }) => {
 	return (
 		<QuestionBase>
 			<Text>〇歳までにやりたいことは何ですか？</Text>
@@ -19,8 +17,8 @@ export const Question = () => {
 				<Input type="text" placeholder="やりたいことを入力してください" />
 				<Button>追加</Button>
 			</Flex>
-			<TaskList />
-			<Button onClick={handleNextQuestion}>次へ</Button>
+			<TaskListContainer />
+			<Button onClick={onClick}>次へ</Button>
 		</QuestionBase>
 	);
 };
