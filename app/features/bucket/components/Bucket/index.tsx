@@ -3,7 +3,10 @@ import type { FC } from 'react';
 import { CARD_WIDTH } from '../../constants';
 
 type Props = {
-	age: number;
+	age: {
+		start: number;
+		end: number;
+	};
 };
 
 export const Bucket: FC<Props> = ({ age }) => {
@@ -19,7 +22,7 @@ export const Bucket: FC<Props> = ({ age }) => {
 			<Box style={{ flexGrow: 1, minHeight: 0 }} />
 			<Divider />
 			<Box style={{ padding: '16px' }}>
-				<Text style={{ width: '100%', textAlign: 'center' }}>{age}代</Text>
+				<Text style={{ width: '100%', textAlign: 'center' }}>{age.start}～{age.end}歳</Text>
 			</Box>
 		</Flex>
 	);
