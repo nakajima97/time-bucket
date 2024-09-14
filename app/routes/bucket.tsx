@@ -1,9 +1,7 @@
-import { Question } from "@/features/bucket/components/Question";
+import { Question } from '@/features/bucket/components/Question';
 
 const Index = () => {
-  return (
-    <Question />
-  );
-}
+	return <Question />;
+};
 
 export default Index;

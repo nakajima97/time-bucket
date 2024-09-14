@@ -1,9 +1,7 @@
-import { Question } from "@/features/task/components/Question";
+import { Question } from '@/features/task/components/Question';
 
 const Index = () => {
-  return (
-    <Question />
-  );
-}
+	return <Question />;
+};
 
 export default Index;

@@ -1,9 +1,7 @@
-import { GoalAge } from "@/features/goalAge/components";
+import { GoalAge } from '@/features/goalAge/components';
 
 const Index = () => {
-  return (
-    <GoalAge />
-  );
-}
+	return <GoalAge />;
+};
 
 export default Index;

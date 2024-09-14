@@ -14,8 +14,8 @@ export default function AgeVerification() {
 	const navigate = useNavigate();
 
 	const handleClick = () => {
-		navigate('/goal')
-	}
+		navigate('/goal');
+	};
 
 	return (
 		<QuestionBase>
