@@ -1,6 +1,6 @@
 import { Box, Flex } from '@mantine/core';
-import { BucketList } from '../BucketList/Index';
 import { TaskList } from '../TaskList';
+import { BucketListContainer } from '../BucketListContainer';
 
 export const Question = () => {
 	return (
@@ -9,7 +9,7 @@ export const Question = () => {
 				<TaskList />
 			</Box>
 			<Box style={{ flexGrow: 1, minWidth: 0, overflowX: 'auto' }}>
-				<BucketList />
+				<BucketListContainer />
 			</Box>
 		</Flex>
 	);
