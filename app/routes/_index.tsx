@@ -1,5 +1,6 @@
-import AgeVerification from '@/features/ageVerification/components';
+import { QuestionContainer } from '@/features/ageVerification/components/QuestionContainer';
 import type { MetaFunction } from '@remix-run/node';
+import { useNavigate } from '@remix-run/react';
 
 export const meta: MetaFunction = () => {
 	return [
@@ -9,5 +10,5 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-	return <AgeVerification />;
+	return <QuestionContainer />;
 }

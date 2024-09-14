@@ -1,10 +1,10 @@
 import { Layout } from '@/components/Layout';
-import { GoalAge } from '@/features/goalAge/components';
+import { QuestionContainer } from '@/features/goalAge/components/QuestionContainer';
 
 const Index = () => {
 	return (
 		<Layout>
-			<GoalAge />
+			<QuestionContainer />
 		</Layout>
 	);
 };

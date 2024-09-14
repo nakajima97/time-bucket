@@ -1,7 +1,7 @@
 import { QuestionBase } from '@/components/QuestionBase';
-import { Button, Flex, Input, Paper, Text } from '@mantine/core';
+import { Button, Input, Text } from '@mantine/core';
 import type { MetaFunction } from '@remix-run/node';
-import { useNavigate } from '@remix-run/react';
+import type { FC } from 'react';
 
 export const meta: MetaFunction = () => {
 	return [
@@ -10,18 +10,16 @@ export const meta: MetaFunction = () => {
 	];
 };
 
-export default function AgeVerification() {
-	const navigate = useNavigate();
+type Props = {
+	onClick: () => void;
+};
 
-	const handleClick = () => {
-		navigate('/goal');
-	};
-
+export const Question: FC<Props> = ({ onClick }) => {
 	return (
 		<QuestionBase>
 			<Text>あなたは現在何歳ですか？</Text>
 			<Input type="number" placeholder="年齢を入力してください" />
-			<Button onClick={handleClick}>次へ</Button>
+			<Button onClick={onClick}>次へ</Button>
 		</QuestionBase>
 	);
-}
+};
