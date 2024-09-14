@@ -1,8 +1,17 @@
-import { QuestionBase } from "@/components/QuestionBase"
 import { Button, Flex, Input, Text } from "@mantine/core"
+import { useNavigate } from "@remix-run/react"
+
+import { QuestionBase } from "@/components/QuestionBase"
+
 import { TaskList } from "../TaskList"
 
 export const Question = () => {
+  const navigate = useNavigate()
+  
+  const handleNextQuestion = () => {
+    navigate('/bucket')
+  }
+
   return (
     <QuestionBase>
       <Text>〇歳までにやりたいことは何ですか？</Text>
@@ -11,7 +20,7 @@ export const Question = () => {
         <Button>追加</Button>
       </Flex>
       <TaskList />
-      <Button>次へ</Button>
+      <Button onClick={handleNextQuestion}>次へ</Button>
     </QuestionBase>
   )
 }
