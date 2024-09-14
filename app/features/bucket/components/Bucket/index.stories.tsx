@@ -1,16 +1,18 @@
-import { Bucket } from ".";
+import type { StoryObj } from '@storybook/react';
+import { Bucket } from '.';
 
 export default {
-  title: "Features/Bucket/Components/Bucket",
-  component: Bucket,
+	title: 'Features/Bucket/Components/Bucket',
+	component: Bucket,
 };
 
-const Template = (args) => <Bucket {...args}/>;
+type Story = StoryObj<typeof Bucket>;
 
-export const Default = Template.bind({});
-Default.args = {
-  age: {
-    start: 10,
-    end: 20
-  },
+export const Default: Story = {
+	args: {
+		age: {
+			start: 10,
+			end: 20,
+		},
+	},
 };

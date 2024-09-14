@@ -1,7 +1,7 @@
-import { FC } from 'react';
 import { QuestionBase } from '@/components/QuestionBase';
 import { Button, Input, Text } from '@mantine/core';
 import type { MetaFunction } from '@remix-run/node';
+import type { FC } from 'react';
 
 export const meta: MetaFunction = () => {
 	return [
@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 
 type Props = {
 	onClick: () => void;
-}
+};
 
 export const Question: FC<Props> = ({ onClick }) => {
 	return (
@@ -22,4 +22,4 @@ export const Question: FC<Props> = ({ onClick }) => {
 			<Button onClick={onClick}>次へ</Button>
 		</QuestionBase>
 	);
-}
+};

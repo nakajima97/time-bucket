@@ -1,13 +1,11 @@
-import { Question } from ".";
+import type { StoryObj } from '@storybook/react';
+import { Question } from '.';
 
 export default {
-  title: "Features/AgeVerification/Components/Question",
-  component: Question,
+	title: 'Features/AgeVerification/Components/Question',
+	component: Question,
 };
 
-const Template = (args) => <Question {...args}/>;
+type Story = StoryObj<typeof Question>;
 
-export const Default = Template.bind({});
-Default.args = {
-  onClick: () => console.log("Button clicked"),
-};
+export const Default: Story = {};

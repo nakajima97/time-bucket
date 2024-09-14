@@ -1,8 +1,7 @@
 import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
 import type { Preview } from '@storybook/react';
-import {
-  MantineProvider,
-} from '@mantine/core';
+import type { ReactNode } from 'react';
 import React from 'react';
 
 const preview: Preview = {
@@ -15,7 +14,7 @@ const preview: Preview = {
 		},
 	},
 	decorators: [
-		(renderStory: any) => (
+		(renderStory: () => ReactNode) => (
 			<MantineProvider>{renderStory()}</MantineProvider>
 		),
 	],
