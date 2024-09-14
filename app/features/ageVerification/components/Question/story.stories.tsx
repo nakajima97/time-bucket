@@ -5,6 +5,9 @@ export default {
   component: Question,
 };
 
-const Template = () => <Question />;
+const Template = (args) => <Question {...args}/>;
 
 export const Default = Template.bind({});
+Default.args = {
+  onClick: () => console.log("Button clicked"),
+};
