@@ -1,12 +1,12 @@
-import { useNavigate } from "@remix-run/react";
-import { Question } from "../Question";
+import { useNavigate } from '@remix-run/react';
+import { Question } from '../Question';
 
 export const QuestionContainer = () => {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const handleNextQuestion = () => {
 		navigate('/bucket');
 	};
 
-  return <Question onClick={handleNextQuestion} />;
-}
+	return <Question onClick={handleNextQuestion} />;
+};

@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { TaskList } from "../TaskList";
+import type { FC } from 'react';
+import { TaskList } from '../TaskList';
 
 export const TaskListContainer: FC = () => {
-  const tasks = [
+	const tasks = [
 		{
 			id: 1,
 			title: 'Task 1',
@@ -17,5 +17,5 @@ export const TaskListContainer: FC = () => {
 		},
 	];
 
-  return <TaskList tasks={tasks} />;
-}
+	return <TaskList tasks={tasks} />;
+};

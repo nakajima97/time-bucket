@@ -1,4 +1,4 @@
-import { QuestionContainer } from "@/features/task/components/QuestionContainer";
+import { QuestionContainer } from '@/features/task/components/QuestionContainer';
 
 const Index = () => {
 	return <QuestionContainer />;
