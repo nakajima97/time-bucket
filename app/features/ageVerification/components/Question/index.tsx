@@ -18,16 +18,25 @@ type Props = {
 };
 
 export const Question: FC<Props> = ({
-		value = undefined,
-		disabled = false,
-		onClick = () => {},
-		onChange = () => {},
-	}) => {
+	value = undefined,
+	disabled = false,
+	onClick = () => {},
+	onChange = () => {},
+}) => {
 	return (
 		<QuestionBase>
 			<Text>あなたは現在何歳ですか？</Text>
-			<Input type="number" placeholder="年齢を入力してください" onChange={onChange} value={value}/>
-			<Button onClick={onClick} disabled={disabled}>次へ</Button>
+			<Input
+				type="number"
+				placeholder="年齢を入力してください"
+				onChange={onChange}
+				value={value}
+				min={0}
+				max={120}
+			/>
+			<Button onClick={onClick} disabled={disabled}>
+				次へ
+			</Button>
 		</QuestionBase>
 	);
 };

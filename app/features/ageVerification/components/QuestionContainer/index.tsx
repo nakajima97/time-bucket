@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { useNavigate } from '@remix-run/react';
+import { useState } from 'react';
 import { Question } from '../Question';
 
 export const QuestionContainer = () => {
@@ -20,7 +20,14 @@ export const QuestionContainer = () => {
 		}
 
 		setAge(Number(value));
-	}
+	};
 
-	return <Question onClick={handleClick} onChange={handleChange} value={age} disabled={!age}/>;
+	return (
+		<Question
+			onClick={handleClick}
+			onChange={handleChange}
+			value={age}
+			disabled={!age}
+		/>
+	);
 };
