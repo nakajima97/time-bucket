@@ -1,13 +1,21 @@
 import { useNavigate } from '@remix-run/react';
 import { useState } from 'react';
 import { Question } from '../Question';
+import { useLocalStorage } from '@mantine/hooks';
 
 export const QuestionContainer = () => {
 	const [age, setAge] = useState<number | undefined>(undefined);
 
+	const [localStorageAge, setLocalStorageAge] = useLocalStorage({
+		key: 'age',
+		defaultValue: '',
+	});
+
 	const navigate = useNavigate();
 
 	const handleClick = () => {
+		setLocalStorageAge(String(age));
+
 		navigate('/goal');
 	};
 
