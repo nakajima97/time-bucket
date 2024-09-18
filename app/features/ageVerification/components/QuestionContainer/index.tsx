@@ -1,6 +1,6 @@
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from '@remix-run/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Question } from '../Question';
 
 export const QuestionContainer = () => {
@@ -10,6 +10,12 @@ export const QuestionContainer = () => {
 		key: 'age',
 		defaultValue: '',
 	});
+
+	useEffect(() => {
+		if (localStorageAge) {
+			setAge(Number(localStorageAge));
+		}
+	}, [localStorageAge])
 
 	const navigate = useNavigate();
 
