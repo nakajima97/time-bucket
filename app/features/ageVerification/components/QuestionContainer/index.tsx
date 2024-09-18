@@ -15,7 +15,7 @@ export const QuestionContainer = () => {
 		if (localStorageAge) {
 			setAge(Number(localStorageAge));
 		}
-	}, [localStorageAge])
+	}, [localStorageAge]);
 
 	const navigate = useNavigate();
 
