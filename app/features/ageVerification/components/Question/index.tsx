@@ -11,14 +11,20 @@ export const meta: MetaFunction = () => {
 };
 
 type Props = {
+	value: number | undefined;
 	onClick: () => void;
+	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Question: FC<Props> = ({ onClick }) => {
+export const Question: FC<Props> = ({
+		value = undefined,
+		onClick = () => {},
+		onChange = () => {},
+	}) => {
 	return (
 		<QuestionBase>
 			<Text>あなたは現在何歳ですか？</Text>
-			<Input type="number" placeholder="年齢を入力してください" />
+			<Input type="number" placeholder="年齢を入力してください" onChange={onChange} value={value}/>
 			<Button onClick={onClick}>次へ</Button>
 		</QuestionBase>
 	);
