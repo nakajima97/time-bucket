@@ -11,15 +11,32 @@ export const meta: MetaFunction = () => {
 };
 
 type Props = {
+	value: number | undefined;
+	disabled: boolean;
 	onClick: () => void;
+	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Question: FC<Props> = ({ onClick }) => {
+export const Question: FC<Props> = ({
+	value = undefined,
+	disabled = false,
+	onClick = () => {},
+	onChange = () => {},
+}) => {
 	return (
 		<QuestionBase>
 			<Text>あなたは現在何歳ですか？</Text>
-			<Input type="number" placeholder="年齢を入力してください" />
-			<Button onClick={onClick}>次へ</Button>
+			<Input
+				type="number"
+				placeholder="年齢を入力してください"
+				onChange={onChange}
+				value={value}
+				min={0}
+				max={120}
+			/>
+			<Button onClick={onClick} disabled={disabled}>
+				次へ
+			</Button>
 		</QuestionBase>
 	);
 };
