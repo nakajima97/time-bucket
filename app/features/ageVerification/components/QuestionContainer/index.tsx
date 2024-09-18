@@ -22,5 +22,5 @@ export const QuestionContainer = () => {
 		setAge(Number(value));
 	}
 
-	return <Question onClick={handleClick} onChange={handleChange} value={age} />;
+	return <Question onClick={handleClick} onChange={handleChange} value={age} disabled={!age}/>;
 };
