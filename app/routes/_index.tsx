@@ -1,4 +1,4 @@
-import { QuestionContainer } from '@/features/ageVerification/components/QuestionContainer';
+import { QuestionContainer } from '@/features/startAge/components/QuestionContainer';
 import type { MetaFunction } from '@remix-run/node';
 import { useNavigate } from '@remix-run/react';
 
