@@ -5,13 +5,14 @@ import { QuestionBase } from '@/components/QuestionBase';
 import { TaskListContainer } from '../TaskListContainer';
 
 type Props = {
+	age: number
 	onClick: () => void;
 };
 
-export const Question = ({ onClick }: Props) => {
+export const Question = ({ age = 10, onClick = () => {} }: Props) => {
 	return (
 		<QuestionBase>
-			<Text>〇歳までにやりたいことは何ですか？</Text>
+			<Text>{age}歳までにやりたいことは何ですか？</Text>
 			<Flex style={{ gap: '10px' }}>
 				<Input type="text" placeholder="やりたいことを入力してください" />
 				<Button>追加</Button>
