@@ -1,5 +1,4 @@
 import { Flex } from '@mantine/core';
-import type { FC } from 'react';
 import { TaskListItem } from '../TaskListItem';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
 	}[];
 };
 
-export const TaskList: FC<Props> = ({ tasks }) => {
+export const TaskList = ({ tasks }: Props) => {
 	return (
 		<Flex
 			style={{

@@ -1,5 +1,4 @@
 import { Flex } from '@mantine/core';
-import type { FC } from 'react';
 import { Bucket } from '../Bucket';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
 	}[];
 };
 
-export const BucketList: FC<Props> = ({ ages }) => {
+export const BucketList = ({ ages }: Props) => {
 	return (
 		<Flex style={{ width: '100%', height: '100%' }}>
 			{ages.map((age) => (

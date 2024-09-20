@@ -1,5 +1,4 @@
 import { Box, List } from '@mantine/core';
-import type { FC } from 'react';
 
 type Props = {
 	tasks: {
@@ -8,7 +7,7 @@ type Props = {
 	}[];
 };
 
-export const TaskList: FC<Props> = ({ tasks }) => {
+export const TaskList = ({ tasks }: Props) => {
 	return (
 		<Box>
 			<List>
