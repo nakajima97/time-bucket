@@ -21,7 +21,7 @@ export const Question = ({
 				type="number"
 				placeholder="年齢を入力してください"
 				onChange={onChange}
-				value={value}
+				value={value ?? ''}
 			/>
 			<Button onClick={onClick} disabled={disabled}>
 				次へ
