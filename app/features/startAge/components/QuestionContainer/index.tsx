@@ -1,21 +1,11 @@
-import { useLocalStorage } from '@mantine/hooks';
+import { useAgeInput } from '@/hooks/useAgeInput';
 import { useNavigate } from '@remix-run/react';
-import { useEffect, useState } from 'react';
 import { Question } from '../Question';
 
 export const QuestionContainer = () => {
-	const [age, setAge] = useState<number | undefined>(undefined);
-
-	const [localStorageAge, setLocalStorageAge] = useLocalStorage({
-		key: 'age',
-		defaultValue: '',
+	const { age, handleChange, setLocalStorageAge } = useAgeInput({
+		localStorageKey: 'startAge',
 	});
-
-	useEffect(() => {
-		if (localStorageAge) {
-			setAge(Number(localStorageAge));
-		}
-	}, [localStorageAge]);
 
 	const navigate = useNavigate();
 
@@ -23,17 +13,6 @@ export const QuestionContainer = () => {
 		setLocalStorageAge(String(age));
 
 		navigate('/goal');
-	};
-
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const value = event.target.value;
-
-		if (value === '') {
-			setAge(undefined);
-			return;
-		}
-
-		setAge(Number(value));
 	};
 
 	return (

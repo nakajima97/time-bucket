@@ -3,13 +3,6 @@ import { Button, Input, Text } from '@mantine/core';
 import type { MetaFunction } from '@remix-run/node';
 import type { FC } from 'react';
 
-export const meta: MetaFunction = () => {
-	return [
-		{ title: 'New Remix SPA' },
-		{ name: 'description', content: 'Welcome to Remix (SPA Mode)!' },
-	];
-};
-
 type Props = {
 	value: number | undefined;
 	disabled: boolean;

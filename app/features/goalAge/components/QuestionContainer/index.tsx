@@ -1,26 +1,19 @@
-import { useNavigate } from "@remix-run/react";
-import { Question } from "../Question";
-import { useState } from "react";
+import { useAgeInput } from '@/hooks/useAgeInput';
+import { useNavigate } from '@remix-run/react';
+import { Question } from '../Question';
 
 export const QuestionContainer = () => {
-  const [age, setAge] = useState<number | undefined>(undefined);
+	const { age, handleChange, setLocalStorageAge } = useAgeInput({
+		localStorageKey: 'goalAge',
+	});
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/task");
-  };
+	const handleClick = () => {
+		setLocalStorageAge(String(age));
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
+		navigate('/task');
+	};
 
-    if (value === "") {
-      setAge(undefined);
-      return;
-    }
-
-    setAge(Number(value));
-  };
-
-  return <Question onClick={handleClick} age={age} onChange={handleChange} />;
+	return <Question onClick={handleClick} value={age} onChange={handleChange} disabled={!age}/>;
 };
