@@ -66,8 +66,6 @@
 		"node": ">=20.0.0"
 	},
 	"eslintConfig": {
-		"extends": [
-			"plugin:storybook/recommended"
-		]
+		"extends": ["plugin:storybook/recommended"]
 	}
 }

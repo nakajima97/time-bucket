@@ -25,5 +25,5 @@ export default defineConfig({
 		 * {@link https://vitest.dev/guide/in-source.html}
 		 */
 		includeSource: ['src/**/*.{ts,tsx}'],
-	}
+	},
 });
