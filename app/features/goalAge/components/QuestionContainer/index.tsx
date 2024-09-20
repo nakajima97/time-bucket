@@ -15,5 +15,12 @@ export const QuestionContainer = () => {
 		navigate('/task');
 	};
 
-	return <Question onClick={handleClick} value={age} onChange={handleChange} disabled={!age}/>;
+	return (
+		<Question
+			onClick={handleClick}
+			value={age}
+			onChange={handleChange}
+			disabled={!age}
+		/>
+	);
 };
