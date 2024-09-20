@@ -24,8 +24,6 @@ export const Question: FC<Props> = ({
 				placeholder="年齢を入力してください"
 				onChange={onChange}
 				value={value}
-				min={0}
-				max={120}
 			/>
 			<Button onClick={onClick} disabled={disabled}>
 				次へ
