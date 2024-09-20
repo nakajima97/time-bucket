@@ -33,7 +33,7 @@ export const Question = ({
 				<Button onClick={addTask}>追加</Button>
 			</Flex>
 			<TaskListContainer tasks={tasks} />
-			<Button onClick={onClick}>次へ</Button>
+			<Button onClick={onClick} disabled={tasks.length === 0}>次へ</Button>
 		</QuestionBase>
 	);
 };
