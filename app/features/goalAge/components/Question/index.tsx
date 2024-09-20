@@ -1,7 +1,5 @@
 import { QuestionBase } from '@/components/QuestionBase';
 import { Button, Input, Text } from '@mantine/core';
-import { useNavigate } from '@remix-run/react';
-import type { FC } from 'react';
 
 type Props = {
 	value: number | undefined;
@@ -10,12 +8,12 @@ type Props = {
 	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Question: FC<Props> = ({
+export const Question = ({
 	value = undefined,
 	disabled = false,
 	onClick = () => {},
 	onChange = () => {},
-}) => {
+}: Props) => {
 	return (
 		<QuestionBase>
 			<Text>何歳までの計画を立てますか？</Text>

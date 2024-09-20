@@ -1,11 +1,10 @@
 import { Flex, Paper } from '@mantine/core';
-import type { FC } from 'react';
 
 type Props = {
 	children: React.ReactNode;
 };
 
-export const QuestionBase: FC<Props> = ({ children }) => {
+export const QuestionBase = ({ children }: Props) => {
 	return (
 		<Flex
 			style={{

@@ -1,5 +1,4 @@
 import { Box, Divider, Flex, Text } from '@mantine/core';
-import type { FC } from 'react';
 import { CARD_WIDTH } from '../../constants';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
 	};
 };
 
-export const Bucket: FC<Props> = ({ age }) => {
+export const Bucket = ({ age }: Props) => {
 	return (
 		<Flex
 			style={{

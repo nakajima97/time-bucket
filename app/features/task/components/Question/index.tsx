@@ -2,14 +2,13 @@ import { Button, Flex, Input, Text } from '@mantine/core';
 
 import { QuestionBase } from '@/components/QuestionBase';
 
-import type { FC } from 'react';
 import { TaskListContainer } from '../TaskListContainer';
 
 type Props = {
 	onClick: () => void;
 };
 
-export const Question: FC<Props> = ({ onClick }) => {
+export const Question = ({ onClick }: Props) => {
 	return (
 		<QuestionBase>
 			<Text>〇歳までにやりたいことは何ですか？</Text>
