@@ -1,20 +1,10 @@
+import type { Tasks } from '../../types';
 import { TaskList } from '../TaskList';
 
-export const TaskListContainer = () => {
-	const tasks = [
-		{
-			id: 1,
-			title: 'Task 1',
-		},
-		{
-			id: 2,
-			title: 'Task 2',
-		},
-		{
-			id: 3,
-			title: 'Task 3',
-		},
-	];
+type Props = {
+	tasks: Tasks;
+};
 
+export const TaskListContainer = ({ tasks }: Props) => {
 	return <TaskList tasks={tasks} />;
 };
