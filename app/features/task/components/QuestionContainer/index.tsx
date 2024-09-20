@@ -9,11 +9,14 @@ export const QuestionContainer = () => {
 	const [tasks, setTasks] = useState<Tasks>([]);
 	const [inputValue, setInputValue] = useState('');
 	const [goalAge] = useLocalStorage({ key: localStorageKeys.goalAge });
+	const [localStorageTasks, setLocalStorageTasks] = useLocalStorage({ key: localStorageKeys.tasks });
 
 	const navigate = useNavigate();
 
 	const handleNextQuestion = () => {
 		navigate('/bucket');
+
+		setLocalStorageTasks(JSON.stringify(tasks));
 	};
 
 	const handleAddTask = (event: React.MouseEvent) => {
