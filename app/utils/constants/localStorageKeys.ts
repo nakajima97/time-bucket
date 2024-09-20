@@ -1,4 +1,4 @@
 export const localStorageKeys = {
-  startAge: 'startAge',
-  goalAge: 'goalAge',
-}
+	startAge: 'startAge',
+	goalAge: 'goalAge',
+};

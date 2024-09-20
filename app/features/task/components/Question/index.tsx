@@ -5,7 +5,7 @@ import { QuestionBase } from '@/components/QuestionBase';
 import { TaskListContainer } from '../TaskListContainer';
 
 type Props = {
-	age: number
+	age: number;
 	onClick: () => void;
 };
 
