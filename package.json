@@ -35,6 +35,8 @@
 		"@storybook/react": "^8.3.0",
 		"@storybook/react-vite": "^8.3.0",
 		"@storybook/test": "^8.3.0",
+		"@testing-library/react": "^16.0.1",
+		"@testing-library/react-hooks": "^8.0.1",
 		"@types/react": "^18.2.20",
 		"@types/react-dom": "^18.2.7",
 		"@typescript-eslint/eslint-plugin": "^6.7.4",
@@ -47,6 +49,7 @@
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-storybook": "^0.8.0",
+		"jsdom": "^25.0.0",
 		"postcss": "^8.4.45",
 		"postcss-preset-mantine": "^1.17.0",
 		"postcss-simple-vars": "^7.0.1",
@@ -56,12 +59,15 @@
 		"tailwindcss": "^3.4.4",
 		"typescript": "^5.1.6",
 		"vite": "^5.1.0",
-		"vite-tsconfig-paths": "^4.2.1"
+		"vite-tsconfig-paths": "^4.2.1",
+		"vitest": "^2.1.1"
 	},
 	"engines": {
 		"node": ">=20.0.0"
 	},
 	"eslintConfig": {
-		"extends": ["plugin:storybook/recommended"]
+		"extends": [
+			"plugin:storybook/recommended"
+		]
 	}
 }
