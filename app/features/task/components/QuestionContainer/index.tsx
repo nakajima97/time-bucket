@@ -9,7 +9,9 @@ export const QuestionContainer = () => {
 	const [tasks, setTasks] = useState<Tasks>([]);
 	const [inputValue, setInputValue] = useState('');
 	const [goalAge] = useLocalStorage({ key: localStorageKeys.goalAge });
-	const [localStorageTasks, setLocalStorageTasks] = useLocalStorage({ key: localStorageKeys.tasks });
+	const [localStorageTasks, setLocalStorageTasks] = useLocalStorage({
+		key: localStorageKeys.tasks,
+	});
 
 	const navigate = useNavigate();
 
