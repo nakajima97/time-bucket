@@ -1,7 +1,7 @@
 import { useAgeInput } from '@/hooks/useAgeInput';
+import { localStorageKeys } from '@/utils/constants/localStorageKeys';
 import { useNavigate } from '@remix-run/react';
 import { Question } from '../Question';
-import { localStorageKeys } from '@/utils/constants/localStorageKeys';
 
 export const QuestionContainer = () => {
 	const { age, handleChange, setLocalStorageAge } = useAgeInput({

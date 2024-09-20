@@ -1,8 +1,8 @@
 import { Box, List } from '@mantine/core';
-import { Tasks } from '../../types';
+import type { Tasks } from '../../types';
 
 type Props = {
-	tasks:Tasks
+	tasks: Tasks;
 };
 
 export const TaskList = ({ tasks }: Props) => {
