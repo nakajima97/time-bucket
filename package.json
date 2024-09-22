@@ -69,11 +69,9 @@
 		"node": ">=20.0.0"
 	},
 	"eslintConfig": {
-		"extends": [
-			"plugin:storybook/recommended"
-		]
+		"extends": ["plugin:storybook/recommended"]
 	},
 	"lint-staged": {
-		"*.{ts, tsx}": "biome check --write"
+		"*": "biome check --write"
 	}
 }
