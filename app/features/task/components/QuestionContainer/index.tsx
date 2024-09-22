@@ -1,10 +1,10 @@
+import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 import { localStorageKeys } from '@/utils/constants/localStorageKeys';
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from '@remix-run/react';
 import { useState } from 'react';
 import type { Tasks } from '../../types';
 import { Question } from '../Question';
-import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 
 export const QuestionContainer = () => {
 	const [tasks, setTasks] = useState<Tasks>([]);

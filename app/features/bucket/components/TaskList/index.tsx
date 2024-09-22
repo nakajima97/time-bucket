@@ -1,9 +1,9 @@
+import type { Tasks } from '@/features/task/types';
 import { Flex } from '@mantine/core';
 import { TaskListItem } from '../TaskListItem';
-import { Tasks } from '@/features/task/types';
 
 type Props = {
-	tasks: Tasks
+	tasks: Tasks;
 };
 
 export const TaskList = ({ tasks }: Props) => {

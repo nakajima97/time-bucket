@@ -1,6 +1,6 @@
-import { Tasks } from "@/features/task/types";
-import { localStorageKeys } from "@/utils/constants/localStorageKeys";
-import { useLocalStorage } from "@mantine/hooks";
+import type { Tasks } from '@/features/task/types';
+import { localStorageKeys } from '@/utils/constants/localStorageKeys';
+import { useLocalStorage } from '@mantine/hooks';
 
 const defaultTasks: Tasks = [];
 
@@ -16,7 +16,7 @@ export const useLocalStorageTask = () => {
 	 */
 	const saveTasksToLocalStorage = (tasks: Tasks) => {
 		setLocalStorageTasks(tasks);
-	}
+	};
 
 	/**
 	 * ローカルストレージからタスクを取得する
@@ -24,11 +24,11 @@ export const useLocalStorageTask = () => {
 	 */
 	const loadTasksFromLocalStorage = () => {
 		console.log({ localStorageTasks });
-		return localStorageTasks
-	}
+		return localStorageTasks;
+	};
 
 	return {
 		saveTasksToLocalStorage,
-		loadTasksFromLocalStorage
-	}
-}
+		loadTasksFromLocalStorage,
+	};
+};
