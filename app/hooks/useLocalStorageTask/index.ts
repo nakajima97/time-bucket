@@ -2,9 +2,12 @@ import { Tasks } from "@/features/task/types";
 import { localStorageKeys } from "@/utils/constants/localStorageKeys";
 import { useLocalStorage } from "@mantine/hooks";
 
+const defaultTasks: Tasks = [];
+
 export const useLocalStorageTask = () => {
 	const [localStorageTasks, setLocalStorageTasks] = useLocalStorage({
 		key: localStorageKeys.tasks,
+		defaultValue: defaultTasks,
 	});
 
 	/**
@@ -12,7 +15,7 @@ export const useLocalStorageTask = () => {
 	 * @param {Tasks} tasks
 	 */
 	const saveTasksToLocalStorage = (tasks: Tasks) => {
-		setLocalStorageTasks(JSON.stringify(tasks));
+		setLocalStorageTasks(tasks);
 	}
 
 	/**
@@ -20,7 +23,8 @@ export const useLocalStorageTask = () => {
 	 * @returns {Tasks}
 	 */
 	const loadTasksFromLocalStorage = () => {
-		return JSON.parse(localStorageTasks) as Tasks;
+		console.log({ localStorageTasks });
+		return localStorageTasks
 	}
 
 	return {
