@@ -12,7 +12,8 @@
 		"format:check": "biome format .",
 		"bc": "biome check --write .",
 		"storybook": "storybook dev -p 6006  --ci",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@mantine/core": "^7.12.2",
@@ -49,7 +50,9 @@
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-storybook": "^0.8.0",
+		"husky": "^9.1.6",
 		"jsdom": "^25.0.0",
+		"lint-staged": "^15.2.10",
 		"postcss": "^8.4.45",
 		"postcss-preset-mantine": "^1.17.0",
 		"postcss-simple-vars": "^7.0.1",
@@ -67,5 +70,8 @@
 	},
 	"eslintConfig": {
 		"extends": ["plugin:storybook/recommended"]
+	},
+	"lint-staged": {
+		"*": "biome check --write"
 	}
 }
