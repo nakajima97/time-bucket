@@ -4,21 +4,20 @@ import { useNavigate } from '@remix-run/react';
 import { useState } from 'react';
 import type { Tasks } from '../../types';
 import { Question } from '../Question';
+import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 
 export const QuestionContainer = () => {
 	const [tasks, setTasks] = useState<Tasks>([]);
 	const [inputValue, setInputValue] = useState('');
 	const [goalAge] = useLocalStorage({ key: localStorageKeys.goalAge });
-	const [localStorageTasks, setLocalStorageTasks] = useLocalStorage({
-		key: localStorageKeys.tasks,
-	});
+	const { saveTasksToLocalStorage } = useLocalStorageTask();
 
 	const navigate = useNavigate();
 
 	const handleNextQuestion = () => {
 		navigate('/bucket');
 
-		setLocalStorageTasks(JSON.stringify(tasks));
+		saveTasksToLocalStorage(tasks);
 	};
 
 	const handleAddTask = (event: React.MouseEvent) => {
