@@ -16,7 +16,7 @@ export const QuestionContainer = () => {
 	const localStorageAge = loadStartAgeFromLocalStorage();
 	useEffect(() => {
 		if (localStorageAge) {
-			setAge(Number(localStorageAge));
+			setAge(localStorageAge);
 		}
 	}, [localStorageAge, setAge]);
 

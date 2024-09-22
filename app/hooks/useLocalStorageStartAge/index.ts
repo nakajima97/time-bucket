@@ -20,7 +20,7 @@ export const useLocalStorageStartAge = () => {
 	 * @returns {number}
 	 */
 	const loadStartAgeFromLocalStorage = () => {
-		return localStorageStartAge;
+		return Number(localStorageStartAge);
 	};
 
 	return {

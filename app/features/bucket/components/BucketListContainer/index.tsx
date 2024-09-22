@@ -1,32 +1,34 @@
+import { useLocalStorageGoalAge } from '@/hooks/useLocalStorageGoalAge';
+import { useLocalStorageStartAge } from '@/hooks/useLocalStorageStartAge';
+import { L } from 'vitest/dist/chunks/reporters.WnPwkmgA.js';
 import { BucketList } from '../BucketList/Index';
 
 export const BucketListContainer = () => {
-	const ages = [
-		{
-			start: 10,
-			end: 20,
-		},
-		{
-			start: 11,
-			end: 20,
-		},
-		{
-			start: 21,
-			end: 30,
-		},
-		{
-			start: 31,
-			end: 40,
-		},
-		{
-			start: 41,
-			end: 50,
-		},
-		{
-			start: 51,
-			end: 60,
-		},
-	];
+	const { loadGoalAgeFromLocalStorage } = useLocalStorageGoalAge();
+	const { loadStartAgeFromLocalStorage } = useLocalStorageStartAge();
+
+	const generateAges = () => {
+		const ageBucketSize = 10;
+		const startAge = loadStartAgeFromLocalStorage();
+		const goalAge = loadGoalAgeFromLocalStorage();
+
+		if (!startAge || !goalAge) {
+			return [];
+		}
+
+		// startAgeからgoalAgeまでの年齢をageBucketSizeごとに分割する
+		const ages = [];
+		for (let i = startAge; i <= goalAge; i += ageBucketSize) {
+			ages.push({
+				start: i,
+				end: Math.min(i + ageBucketSize - 1, goalAge), // goalAgeを超えないようにする
+			});
+		}
+
+		return ages;
+	};
+
+	const ages = generateAges();
 
 	return <BucketList ages={ages} />;
 };
