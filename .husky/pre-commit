@@ -1,1 +1,1 @@
-yarn bc
+npx lint-staged

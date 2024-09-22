@@ -52,6 +52,7 @@
 		"eslint-plugin-storybook": "^0.8.0",
 		"husky": "^9.1.6",
 		"jsdom": "^25.0.0",
+		"lint-staged": "^15.2.10",
 		"postcss": "^8.4.45",
 		"postcss-preset-mantine": "^1.17.0",
 		"postcss-simple-vars": "^7.0.1",
@@ -71,5 +72,8 @@
 		"extends": [
 			"plugin:storybook/recommended"
 		]
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": "biome check --write"
 	}
 }
