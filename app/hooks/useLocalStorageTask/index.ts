@@ -23,7 +23,6 @@ export const useLocalStorageTask = () => {
 	 * @returns {Tasks}
 	 */
 	const loadTasksFromLocalStorage = () => {
-		console.log({ localStorageTasks });
 		return localStorageTasks;
 	};
 
