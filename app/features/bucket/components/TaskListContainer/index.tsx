@@ -1,16 +1,10 @@
+import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 import { TaskList } from '../TaskList';
 
 export const TaskListContainer = () => {
-	const tasks = [
-		{
-			id: 1,
-			title: 'Task 1',
-		},
-		{
-			id: 2,
-			title: 'Task 2',
-		},
-	];
+	const { loadTasksFromLocalStorage } = useLocalStorageTask();
+
+	const tasks = loadTasksFromLocalStorage() ?? [];
 
 	return <TaskList tasks={tasks} />;
 };

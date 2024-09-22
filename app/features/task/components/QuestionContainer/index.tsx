@@ -1,3 +1,4 @@
+import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 import { localStorageKeys } from '@/utils/constants/localStorageKeys';
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from '@remix-run/react';
@@ -9,16 +10,14 @@ export const QuestionContainer = () => {
 	const [tasks, setTasks] = useState<Tasks>([]);
 	const [inputValue, setInputValue] = useState('');
 	const [goalAge] = useLocalStorage({ key: localStorageKeys.goalAge });
-	const [localStorageTasks, setLocalStorageTasks] = useLocalStorage({
-		key: localStorageKeys.tasks,
-	});
+	const { saveTasksToLocalStorage } = useLocalStorageTask();
 
 	const navigate = useNavigate();
 
 	const handleNextQuestion = () => {
 		navigate('/bucket');
 
-		setLocalStorageTasks(JSON.stringify(tasks));
+		saveTasksToLocalStorage(tasks);
 	};
 
 	const handleAddTask = (event: React.MouseEvent) => {

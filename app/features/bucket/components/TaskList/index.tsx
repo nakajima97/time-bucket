@@ -1,11 +1,9 @@
+import type { Tasks } from '@/features/task/types';
 import { Flex } from '@mantine/core';
 import { TaskListItem } from '../TaskListItem';
 
 type Props = {
-	tasks: {
-		id: number;
-		title: string;
-	}[];
+	tasks: Tasks;
 };
 
 export const TaskList = ({ tasks }: Props) => {
@@ -19,7 +17,7 @@ export const TaskList = ({ tasks }: Props) => {
 			}}
 		>
 			{tasks.map((task) => (
-				<TaskListItem key={task.id} text={task.title} />
+				<TaskListItem key={task.id} text={task.content} />
 			))}
 		</Flex>
 	);
