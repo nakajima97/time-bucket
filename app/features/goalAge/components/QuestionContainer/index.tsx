@@ -1,17 +1,27 @@
 import { useAgeInput } from '@/hooks/useAgeInput';
+import { useLocalStorageGoalAge } from '@/hooks/useLocalStorageGoalAge';
 import { localStorageKeys } from '@/utils/constants/localStorageKeys';
 import { useNavigate } from '@remix-run/react';
+import { useEffect } from 'react';
 import { Question } from '../Question';
 
 export const QuestionContainer = () => {
-	const { age, handleChange, setLocalStorageAge } = useAgeInput({
-		localStorageKey: localStorageKeys.goalAge,
-	});
+	const { age, handleChange, setAge } = useAgeInput();
+	const { saveGoalAgeToLocalStorage, loadGoalAgeFromLocalStorage } =
+		useLocalStorageGoalAge();
 
 	const navigate = useNavigate();
 
+	// ローカルストレージに値があったら、年齢をセットする
+	const localStorageAge = loadGoalAgeFromLocalStorage();
+	useEffect(() => {
+		if (localStorageAge) {
+			setAge(localStorageAge);
+		}
+	}, [localStorageAge, setAge]);
+
 	const handleClick = () => {
-		setLocalStorageAge(String(age));
+		saveGoalAgeToLocalStorage(age ?? 0);
 
 		navigate('/task');
 	};

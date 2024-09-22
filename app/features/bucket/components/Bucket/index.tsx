@@ -22,7 +22,9 @@ export const Bucket = ({ age }: Props) => {
 			<Divider />
 			<Box style={{ padding: '16px' }}>
 				<Text style={{ width: '100%', textAlign: 'center' }}>
-					{age.start}～{age.end}歳
+					{age.start === age.end
+						? `${age.start}歳`
+						: `${age.start}～${age.end}歳`}
 				</Text>
 			</Box>
 		</Flex>
