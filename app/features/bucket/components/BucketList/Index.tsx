@@ -1,5 +1,5 @@
 import { Flex } from '@mantine/core';
-import { Bucket } from '../Bucket';
+import { BucketType } from '../Bucket';
 
 type Props = {
 	ages: {

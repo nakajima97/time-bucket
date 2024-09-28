@@ -1,4 +1,4 @@
-import type { Tasks } from '@/features/task/types';
+import type { Tasks } from '@/types';
 import { Flex } from '@mantine/core';
 import { TaskListItem } from '../TaskListItem';
 

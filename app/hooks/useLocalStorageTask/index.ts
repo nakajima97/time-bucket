@@ -1,4 +1,4 @@
-import type { Tasks } from '@/features/task/types';
+import type { Tasks } from '@/types';
 import { localStorageKeys } from '@/utils/constants/localStorageKeys';
 import { useLocalStorage } from '@mantine/hooks';
 

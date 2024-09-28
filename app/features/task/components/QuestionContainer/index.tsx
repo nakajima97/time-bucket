@@ -3,7 +3,7 @@ import { localStorageKeys } from '@/utils/constants/localStorageKeys';
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from '@remix-run/react';
 import { useState } from 'react';
-import type { Tasks } from '../../types';
+import type { Tasks } from '../../../../types';
 import { Question } from '../Question';
 
 export const QuestionContainer = () => {

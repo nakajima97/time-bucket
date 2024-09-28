@@ -1,5 +1,5 @@
 import type { StoryObj } from '@storybook/react';
-import { Bucket } from '.';
+import { BucketType } from '.';
 
 export default {
 	title: 'features/bucket/Components/Bucket',

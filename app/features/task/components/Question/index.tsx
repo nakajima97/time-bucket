@@ -1,6 +1,6 @@
 import { QuestionBase } from '@/components/QuestionBase';
 import { Button, Flex, Input, Text } from '@mantine/core';
-import type { Tasks } from '../../types';
+import type { Tasks } from '../../../../types';
 import { TaskListContainer } from '../TaskListContainer';
 
 type Props = {

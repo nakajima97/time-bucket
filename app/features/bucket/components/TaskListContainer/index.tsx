@@ -1,10 +1,11 @@
 import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
+import type { Tasks } from '@/types';
 import { TaskList } from '../TaskList';
 
-export const TaskListContainer = () => {
-	const { loadTasksFromLocalStorage } = useLocalStorageTask();
+type Props = {
+	tasks: Tasks;
+};
 
-	const tasks = loadTasksFromLocalStorage() ?? [];
-
+export const TaskListContainer = ({ tasks }: Props) => {
 	return <TaskList tasks={tasks} />;
 };

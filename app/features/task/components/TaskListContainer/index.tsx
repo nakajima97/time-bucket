@@ -1,4 +1,4 @@
-import type { Tasks } from '../../types';
+import type { Tasks } from '../../../../types';
 import { TaskList } from '../TaskList';
 
 type Props = {
