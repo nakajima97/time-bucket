@@ -12,6 +12,7 @@ export type BucketType = {
 		end: number;
 	};
 	tasks: Tasks;
+	isTaskOnly?: boolean;
 };
 
 export type Buckets = BucketType[];

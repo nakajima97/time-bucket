@@ -1,6 +1,5 @@
 import { Layout } from '@/components/Layout';
 import { Bucket } from '@/features/bucket/components/Bucket';
-import { TaskListContainer } from '@/features/bucket/components/TaskListContainer';
 import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 import type { Buckets } from '@/types';
 import { DragDropContext, type DropResult } from '@hello-pangea/dnd';
@@ -10,24 +9,28 @@ import { useEffect, useState } from 'react';
 const Index = () => {
 	const [buckets, setBuckets] = useState<Buckets>([]);
 
+	const { loadTasksFromLocalStorage } = useLocalStorageTask();
+
+	const tasks = loadTasksFromLocalStorage() ?? [];
+
 	useEffect(() => {
 		setBuckets([
+			{
+				id: 0,
+				age: {
+					start: 0,
+					end: 0,
+				},
+				tasks: tasks,
+				isTaskOnly: true,
+			},
 			{
 				id: 1,
 				age: {
 					start: 20,
 					end: 29,
 				},
-				tasks: [
-					{
-						id: 1,
-						content: 'Task 1',
-					},
-					{
-						id: 2,
-						content: 'Task 2',
-					},
-				],
+				tasks: [],
 			},
 			{
 				id: 2,
@@ -35,23 +38,10 @@ const Index = () => {
 					start: 30,
 					end: 39,
 				},
-				tasks: [
-					{
-						id: 3,
-						content: 'Task 3',
-					},
-					{
-						id: 4,
-						content: 'Task 4',
-					},
-				],
+				tasks: [],
 			},
 		]);
-	}, []);
-
-	const { loadTasksFromLocalStorage } = useLocalStorageTask();
-
-	const tasks = loadTasksFromLocalStorage() ?? [];
+	}, [tasks]);
 
 	// ドラッグアンドドロップの実装
 	const onDragEnd = (result: DropResult) => {
@@ -105,9 +95,6 @@ const Index = () => {
 		<Layout>
 			<DragDropContext onDragEnd={onDragEnd}>
 				<Flex style={{ gap: '16px', width: '100%', height: '100%' }}>
-					<Box style={{ width: '300px', flexShrink: 0 }}>
-						<TaskListContainer tasks={tasks} droppableId="task-list" />
-					</Box>
 					<Box style={{ flexGrow: 1, minWidth: 0, overflowX: 'auto' }}>
 						<Flex style={{ width: '100%', height: '100%' }}>
 							{buckets.map((bucket) => (

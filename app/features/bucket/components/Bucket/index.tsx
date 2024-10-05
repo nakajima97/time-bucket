@@ -23,14 +23,18 @@ export const Bucket = ({ bucket }: Props) => {
 					droppableId={bucket.id.toString()}
 				/>
 			</Box>
-			<Divider />
-			<Box style={{ padding: '16px' }}>
-				<Text style={{ width: '100%', textAlign: 'center' }}>
-					{bucket.age.start === bucket.age.end
-						? `${bucket.age.start}歳`
-						: `${bucket.age.start}～${bucket.age.end}歳`}
-				</Text>
-			</Box>
+			{!bucket.isTaskOnly && (
+				<>
+					<Divider />
+					<Box style={{ padding: '16px' }}>
+						<Text style={{ width: '100%', textAlign: 'center' }}>
+							{bucket.age.start === bucket.age.end
+								? `${bucket.age.start}歳`
+								: `${bucket.age.start}～${bucket.age.end}歳`}
+						</Text>
+					</Box>
+				</>
+			)}
 		</Flex>
 	);
 };
