@@ -15,9 +15,12 @@ export const useLocalStorageTask = () => {
 	 * ローカルストレージにタスクを保存する
 	 * @param {Tasks} tasks
 	 */
-	const saveTasksToLocalStorage = (tasks: Tasks) => {
-		setLocalStorageTasks(tasks);
-	};
+	const saveTasksToLocalStorage = useCallback(
+		(tasks: Tasks) => {
+			setLocalStorageTasks(tasks);
+		},
+		[setLocalStorageTasks],
+	);
 
 	/**
 	 * ローカルストレージからタスクを取得する
@@ -28,9 +31,9 @@ export const useLocalStorageTask = () => {
 	}, [localStorageTasks]);
 
 	// ローカルストレージからタスクを削除する
-	const clearTasksFromLocalStorage = () => {
+	const clearTasksFromLocalStorage = useCallback(() => {
 		setLocalStorageTasks(defaultTasks);
-	};
+	}, [setLocalStorageTasks]);
 
 	return {
 		saveTasksToLocalStorage,
