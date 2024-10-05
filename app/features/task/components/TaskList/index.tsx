@@ -1,5 +1,5 @@
 import { Box, List } from '@mantine/core';
-import type { Tasks } from '../../types';
+import type { Tasks } from '../../../../types';
 
 type Props = {
 	tasks: Tasks;

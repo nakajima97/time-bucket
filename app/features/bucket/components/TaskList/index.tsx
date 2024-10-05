@@ -1,12 +1,16 @@
-import type { Tasks } from '@/features/task/types';
+import type { Tasks } from '@/types';
 import { Flex } from '@mantine/core';
-import { TaskListItem } from '../TaskListItem';
+import { TaskListItemDraggableContainer } from '../TaskListItemDraggableContainer';
 
 type Props = {
 	tasks: Tasks;
+	// React19からはforwardRefを使わなくてもRefを受け取れるようになった
+	// このプロジェクトはReact18なので、名前を変えることで回避している
+	myRef?: React.Ref<HTMLDivElement> | null;
+	[key: string]: unknown;
 };
 
-export const TaskList = ({ tasks }: Props) => {
+export const TaskList = ({ tasks, myRef, ...rest }: Props) => {
 	return (
 		<Flex
 			style={{
@@ -15,9 +19,11 @@ export const TaskList = ({ tasks }: Props) => {
 				flexDirection: 'column',
 				gap: '8px',
 			}}
+			ref={myRef}
+			{...rest}
 		>
 			{tasks.map((task) => (
-				<TaskListItem key={task.id} text={task.content} />
+				<TaskListItemDraggableContainer key={task.id} task={task} />
 			))}
 		</Flex>
 	);

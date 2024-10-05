@@ -1,14 +1,13 @@
+import type { BucketType } from '@/types';
 import { Box, Divider, Flex, Text } from '@mantine/core';
 import { CARD_WIDTH } from '../../constants';
+import { TaskListContainer } from '../TaskListContainer';
 
 type Props = {
-	age: {
-		start: number;
-		end: number;
-	};
+	bucket: BucketType;
 };
 
-export const Bucket = ({ age }: Props) => {
+export const Bucket = ({ bucket }: Props) => {
 	return (
 		<Flex
 			style={{
@@ -18,15 +17,24 @@ export const Bucket = ({ age }: Props) => {
 				padding: '8px',
 			}}
 		>
-			<Box style={{ flexGrow: 1, minHeight: 0 }} />
-			<Divider />
-			<Box style={{ padding: '16px' }}>
-				<Text style={{ width: '100%', textAlign: 'center' }}>
-					{age.start === age.end
-						? `${age.start}歳`
-						: `${age.start}～${age.end}歳`}
-				</Text>
+			<Box style={{ flexGrow: 1, minHeight: 0 }}>
+				<TaskListContainer
+					tasks={bucket.tasks}
+					droppableId={bucket.id.toString()}
+				/>
 			</Box>
+			{!bucket.isTaskOnly && (
+				<>
+					<Divider />
+					<Box style={{ padding: '16px' }}>
+						<Text style={{ width: '100%', textAlign: 'center' }}>
+							{bucket.age.start === bucket.age.end
+								? `${bucket.age.start}歳`
+								: `${bucket.age.start}～${bucket.age.end}歳`}
+						</Text>
+					</Box>
+				</>
+			)}
 		</Flex>
 	);
 };
