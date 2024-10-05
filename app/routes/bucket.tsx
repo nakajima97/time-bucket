@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { LayoutContainer } from '@/components/LayoutContainer';
 import { Bucket } from '@/features/bucket/components/Bucket';
 import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 import type { Buckets } from '@/types';
@@ -92,7 +93,7 @@ const Index = () => {
 	};
 
 	return (
-		<Layout>
+		<LayoutContainer>
 			<DragDropContext onDragEnd={onDragEnd}>
 				<Flex style={{ gap: '16px', width: '100%', height: '100%' }}>
 					<Box style={{ flexGrow: 1, minWidth: 0, overflowX: 'auto' }}>
@@ -104,7 +105,7 @@ const Index = () => {
 					</Box>
 				</Flex>
 			</DragDropContext>
-		</Layout>
+		</LayoutContainer>
 	);
 };
 

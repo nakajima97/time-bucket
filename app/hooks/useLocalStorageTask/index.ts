@@ -26,8 +26,14 @@ export const useLocalStorageTask = () => {
 		return localStorageTasks;
 	};
 
+	// ローカルストレージからタスクを削除する
+	const clearTasksFromLocalStorage = () => {
+		setLocalStorageTasks(defaultTasks);
+	};
+
 	return {
 		saveTasksToLocalStorage,
 		loadTasksFromLocalStorage,
+		clearTasksFromLocalStorage,
 	};
 };

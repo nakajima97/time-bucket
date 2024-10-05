@@ -23,8 +23,16 @@ export const useLocalStorageStartAge = () => {
 		return Number(localStorageStartAge);
 	};
 
+	/**
+	 * ローカルストレージから開始年齢を削除する
+	 */
+	const clearStartAgeFromLocalStorage = () => {
+		setLocalStorageStartAge('');
+	};
+
 	return {
 		saveStartAgeToLocalStorage,
 		loadStartAgeFromLocalStorage,
+		clearStartAgeFromLocalStorage,
 	};
 };
