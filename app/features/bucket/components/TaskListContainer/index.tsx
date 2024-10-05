@@ -1,5 +1,6 @@
 import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 import type { Tasks } from '@/types';
+import { Droppable } from '@hello-pangea/dnd';
 import { TaskList } from '../TaskList';
 
 type Props = {
@@ -7,5 +8,15 @@ type Props = {
 };
 
 export const TaskListContainer = ({ tasks }: Props) => {
-	return <TaskList tasks={tasks} />;
+	return (
+		<Droppable droppableId="task-list">
+			{(provided) => (
+				<TaskList
+					tasks={tasks}
+					myRef={provided.innerRef}
+					{...provided.droppableProps}
+				/>
+			)}
+		</Droppable>
+	);
 };

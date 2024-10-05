@@ -3,6 +3,7 @@ import { Bucket } from '@/features/bucket/components/Bucket';
 import { TaskListContainer } from '@/features/bucket/components/TaskListContainer';
 import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 import type { Buckets } from '@/types';
+import { DragDropContext } from '@hello-pangea/dnd';
 import { Box, Flex } from '@mantine/core';
 import { useEffect, useState } from 'react';
 
@@ -54,18 +55,20 @@ const Index = () => {
 
 	return (
 		<Layout>
-			<Flex style={{ gap: '16px', width: '100%', height: '100%' }}>
-				<Box style={{ width: '300px', flexShrink: 0 }}>
-					<TaskListContainer tasks={tasks} />
-				</Box>
-				<Box style={{ flexGrow: 1, minWidth: 0, overflowX: 'auto' }}>
-					<Flex style={{ width: '100%', height: '100%' }}>
-						{buckets.map((bucket) => (
-							<Bucket key={bucket.age.start} bucket={bucket} />
-						))}
-					</Flex>
-				</Box>
-			</Flex>
+			<DragDropContext onDragEnd={() => {}}>
+				<Flex style={{ gap: '16px', width: '100%', height: '100%' }}>
+					<Box style={{ width: '300px', flexShrink: 0 }}>
+						<TaskListContainer tasks={tasks} />
+					</Box>
+					<Box style={{ flexGrow: 1, minWidth: 0, overflowX: 'auto' }}>
+						<Flex style={{ width: '100%', height: '100%' }}>
+							{buckets.map((bucket) => (
+								<Bucket key={bucket.age.start} bucket={bucket} />
+							))}
+						</Flex>
+					</Box>
+				</Flex>
+			</DragDropContext>
 		</Layout>
 	);
 };
