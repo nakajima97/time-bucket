@@ -22,7 +22,7 @@ const Index = () => {
 
 			const buckets: Buckets = [
 				{
-					id: 0,
+					id: -1,
 					age: {
 						start: 0,
 						end: 0,
@@ -32,11 +32,12 @@ const Index = () => {
 				},
 			];
 
+			let id = 1;
 			for (let i = startAge; i <= goalAge; i += 10) {
 				const endAge = i + 9 < goalAge ? i + 9 : goalAge;
 
 				buckets.push({
-					id: i / 10,
+					id: id++,
 					age: {
 						start: i,
 						end: endAge,
