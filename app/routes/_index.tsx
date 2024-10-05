@@ -1,4 +1,5 @@
 import { Layout } from '@/components/Layout';
+import { LayoutContainer } from '@/components/LayoutContainer';
 import { QuestionContainer } from '@/features/startAge/components/QuestionContainer';
 import type { MetaFunction } from '@remix-run/node';
 import { useNavigate } from '@remix-run/react';
@@ -12,8 +13,8 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
 	return (
-		<Layout>
+		<LayoutContainer>
 			<QuestionContainer />
-		</Layout>
+		</LayoutContainer>
 	);
 }

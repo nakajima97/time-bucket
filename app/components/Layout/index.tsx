@@ -2,9 +2,10 @@ import { AppShell, Box, Button, Flex, Text } from '@mantine/core';
 
 type Props = {
 	children: React.ReactNode;
+	onClick: () => void;
 };
 
-export const Layout = ({ children }: Props) => {
+export const Layout = ({ children, onClick }: Props) => {
 	return (
 		<AppShell
 			header={{ height: 60 }}
@@ -26,7 +27,7 @@ export const Layout = ({ children }: Props) => {
 				<Text size="lg" style={{ color: 'white' }}>
 					タイムバケットアプリ
 				</Text>
-				<Button>データクリア</Button>
+				<Button onClick={onClick}>データクリア</Button>
 			</AppShell.Header>
 			<AppShell.Main style={{ flexGrow: 1, paddingY: '16px' }}>
 				{children}
