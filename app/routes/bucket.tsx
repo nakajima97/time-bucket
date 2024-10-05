@@ -118,7 +118,7 @@ const Index = () => {
 					<Box style={{ flexGrow: 1, minWidth: 0, overflowX: 'auto' }}>
 						<Flex style={{ width: '100%', height: '100%' }}>
 							{buckets.map((bucket) => (
-								<Bucket key={bucket.age.start} bucket={bucket} />
+								<Bucket key={bucket.id} bucket={bucket} />
 							))}
 						</Flex>
 					</Box>
