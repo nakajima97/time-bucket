@@ -1,5 +1,6 @@
 import { localStorageKeys } from '@/utils/constants/localStorageKeys';
 import { useLocalStorage } from '@mantine/hooks';
+import { useCallback } from 'react';
 
 export const useLocalStorageGoalAge = () => {
 	const [localStorageGoalAge, setLocalStorageGoalAge] = useLocalStorage({
@@ -11,22 +12,25 @@ export const useLocalStorageGoalAge = () => {
 	 * ローカルストレージに開始年齢を保存する
 	 * @param {number} age
 	 */
-	const saveGoalAgeToLocalStorage = (age: number) => {
-		setLocalStorageGoalAge(String(age));
-	};
+	const saveGoalAgeToLocalStorage = useCallback(
+		(age: number) => {
+			setLocalStorageGoalAge(String(age));
+		},
+		[setLocalStorageGoalAge],
+	);
 
 	/**
 	 * ローカルストレージから開始年齢を取得する
 	 * @returns {number}
 	 */
-	const loadGoalAgeFromLocalStorage = () => {
+	const loadGoalAgeFromLocalStorage = useCallback(() => {
 		return Number(localStorageGoalAge);
-	};
+	}, [localStorageGoalAge]);
 
 	// ローカルストレージから開始年齢を削除する
-	const clearGoalAgeFromLocalStorage = () => {
+	const clearGoalAgeFromLocalStorage = useCallback(() => {
 		setLocalStorageGoalAge('');
-	};
+	}, [setLocalStorageGoalAge]);
 
 	return {
 		saveGoalAgeToLocalStorage,
