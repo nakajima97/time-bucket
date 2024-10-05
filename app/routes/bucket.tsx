@@ -1,48 +1,66 @@
 import { Layout } from '@/components/Layout';
 import { LayoutContainer } from '@/components/LayoutContainer';
 import { Bucket } from '@/features/bucket/components/Bucket';
+import { useLocalStorageGoalAge } from '@/hooks/useLocalStorageGoalAge';
+import { useLocalStorageStartAge } from '@/hooks/useLocalStorageStartAge';
 import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
-import type { Buckets } from '@/types';
+import type { BucketType, Buckets, Tasks } from '@/types';
 import { DragDropContext, type DropResult } from '@hello-pangea/dnd';
 import { Box, Flex } from '@mantine/core';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const Index = () => {
 	const [buckets, setBuckets] = useState<Buckets>([]);
 
 	const { loadTasksFromLocalStorage } = useLocalStorageTask();
+	const { loadStartAgeFromLocalStorage } = useLocalStorageStartAge();
+	const { loadGoalAgeFromLocalStorage } = useLocalStorageGoalAge();
 
-	const tasks = loadTasksFromLocalStorage() ?? [];
+	const generateBuckets = useCallback(
+		(startAge: number, goalAge: number) => {
+			const tasks = loadTasksFromLocalStorage() ?? [];
+
+			const buckets: Buckets = [
+				{
+					id: 0,
+					age: {
+						start: 0,
+						end: 0,
+					},
+					tasks: tasks,
+					isTaskOnly: true,
+				},
+			];
+
+			for (let i = startAge; i <= goalAge; i += 10) {
+				const endAge = i + 9 < goalAge ? i + 9 : goalAge;
+
+				buckets.push({
+					id: i / 10,
+					age: {
+						start: i,
+						end: endAge,
+					},
+					tasks: [],
+				});
+			}
+
+			return buckets;
+		},
+		[loadTasksFromLocalStorage],
+	);
 
 	useEffect(() => {
-		setBuckets([
-			{
-				id: 0,
-				age: {
-					start: 0,
-					end: 0,
-				},
-				tasks: tasks,
-				isTaskOnly: true,
-			},
-			{
-				id: 1,
-				age: {
-					start: 20,
-					end: 29,
-				},
-				tasks: [],
-			},
-			{
-				id: 2,
-				age: {
-					start: 30,
-					end: 39,
-				},
-				tasks: [],
-			},
-		]);
-	}, [tasks]);
+		const startAge = loadStartAgeFromLocalStorage();
+		const goalAge = loadGoalAgeFromLocalStorage();
+
+		const buckets = generateBuckets(startAge, goalAge);
+		setBuckets(buckets);
+	}, [
+		loadStartAgeFromLocalStorage,
+		loadGoalAgeFromLocalStorage,
+		generateBuckets,
+	]);
 
 	// ドラッグアンドドロップの実装
 	const onDragEnd = (result: DropResult) => {

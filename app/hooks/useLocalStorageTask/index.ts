@@ -1,6 +1,7 @@
 import type { Tasks } from '@/types';
 import { localStorageKeys } from '@/utils/constants/localStorageKeys';
 import { useLocalStorage } from '@mantine/hooks';
+import { useCallback } from 'react';
 
 const defaultTasks: Tasks = [];
 
@@ -22,9 +23,9 @@ export const useLocalStorageTask = () => {
 	 * ローカルストレージからタスクを取得する
 	 * @returns {Tasks}
 	 */
-	const loadTasksFromLocalStorage = () => {
+	const loadTasksFromLocalStorage = useCallback(() => {
 		return localStorageTasks;
-	};
+	}, [localStorageTasks]);
 
 	// ローカルストレージからタスクを削除する
 	const clearTasksFromLocalStorage = () => {
