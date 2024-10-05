@@ -5,17 +5,21 @@ import { TaskList } from '../TaskList';
 
 type Props = {
 	tasks: Tasks;
+	droppableId: string;
 };
 
-export const TaskListContainer = ({ tasks }: Props) => {
+export const TaskListContainer = ({ tasks, droppableId }: Props) => {
 	return (
-		<Droppable droppableId="task-list">
+		<Droppable droppableId={droppableId}>
 			{(provided) => (
-				<TaskList
-					tasks={tasks}
-					myRef={provided.innerRef}
-					{...provided.droppableProps}
-				/>
+				<>
+					<TaskList
+						tasks={tasks}
+						myRef={provided.innerRef}
+						{...provided.droppableProps}
+					/>
+					{provided.placeholder}
+				</>
 			)}
 		</Droppable>
 	);

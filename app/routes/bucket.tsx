@@ -3,7 +3,7 @@ import { Bucket } from '@/features/bucket/components/Bucket';
 import { TaskListContainer } from '@/features/bucket/components/TaskListContainer';
 import { useLocalStorageTask } from '@/hooks/useLocalStorageTask';
 import type { Buckets } from '@/types';
-import { DragDropContext } from '@hello-pangea/dnd';
+import { DragDropContext, type DropResult } from '@hello-pangea/dnd';
 import { Box, Flex } from '@mantine/core';
 import { useEffect, useState } from 'react';
 
@@ -53,12 +53,60 @@ const Index = () => {
 
 	const tasks = loadTasksFromLocalStorage() ?? [];
 
+	// ドラッグアンドドロップの実装
+	const onDragEnd = (result: DropResult) => {
+		// 範囲外にドロップしたら何もしない
+		if (!result.destination) {
+			return;
+		}
+
+		setBuckets((prev) => {
+			const newBuckets = prev.map((bucket) => {
+				// ドラッグされたタスクを削除
+				if (bucket.id === Number.parseInt(result.source.droppableId)) {
+					return {
+						...bucket,
+						tasks: bucket.tasks.filter(
+							(task) => task.id !== Number.parseInt(result.draggableId),
+						),
+					};
+				}
+
+				// ドロップ先のバケツにタスクを追加
+				if (
+					result.destination &&
+					bucket.id === Number.parseInt(result.destination.droppableId)
+				) {
+					const newTasks = [...bucket.tasks];
+					newTasks.splice(result.destination.index, 0, {
+						id: Number.parseInt(result.draggableId),
+						content:
+							prev
+								.find(
+									(b) => b.id === Number.parseInt(result.source.droppableId),
+								)
+								?.tasks.find(
+									(t) => t.id === Number.parseInt(result.draggableId),
+								)?.content ?? '',
+					});
+					return {
+						...bucket,
+						tasks: newTasks,
+					};
+				}
+
+				return bucket;
+			});
+			return newBuckets;
+		});
+	};
+
 	return (
 		<Layout>
-			<DragDropContext onDragEnd={() => {}}>
+			<DragDropContext onDragEnd={onDragEnd}>
 				<Flex style={{ gap: '16px', width: '100%', height: '100%' }}>
 					<Box style={{ width: '300px', flexShrink: 0 }}>
-						<TaskListContainer tasks={tasks} />
+						<TaskListContainer tasks={tasks} droppableId="task-list" />
 					</Box>
 					<Box style={{ flexGrow: 1, minWidth: 0, overflowX: 'auto' }}>
 						<Flex style={{ width: '100%', height: '100%' }}>

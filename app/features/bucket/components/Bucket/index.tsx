@@ -18,7 +18,10 @@ export const Bucket = ({ bucket }: Props) => {
 			}}
 		>
 			<Box style={{ flexGrow: 1, minHeight: 0 }}>
-				<TaskListContainer tasks={bucket.tasks} />
+				<TaskListContainer
+					tasks={bucket.tasks}
+					droppableId={bucket.id.toString()}
+				/>
 			</Box>
 			<Divider />
 			<Box style={{ padding: '16px' }}>
